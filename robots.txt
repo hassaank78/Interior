@@ -1,0 +1,24 @@
+# ==============================================================================
+# AURÉLIA Interior Designer Website Template - robots.txt
+# ==============================================================================
+#
+# Production SEO & Crawling Directives:
+# Standard search engine crawlers (Googlebot, Bingbot, etc.) are allowed to crawl
+# all canonical public pages to index content and build sitelinks.
+#
+# Demo URLs & Query-Parameter Handling:
+# When demonstrating this template to prospective clients using URL parameters
+# (e.g. ?name=Studio+Name&city=Mumbai), the client-side engine automatically injects:
+# <meta name="robots" content="noindex, follow"> into the document head.
+#
+# IMPORTANT: For search engines to discover and honor the "noindex" tag, the page
+# MUST NOT be disallowed here in robots.txt. Disallowing in robots.txt prevents
+# the crawler from seeing the noindex directive. Therefore, we allow crawling
+# so that query-parameterized demo URLs are gracefully recognized as non-indexable.
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemap Location (Update with your production domain)
+Sitemap: https://example.github.io/interior-designer-template/sitemap.xml

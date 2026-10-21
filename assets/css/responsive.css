@@ -1,0 +1,458 @@
+/**
+ * AURÉLIA Interior Designer Website Template
+ * Responsive Breakpoints, Left Drawer Navigation & Overflow Safety
+ * 
+ * Supports:
+ * - 375px (iPhone standard/compact mobile)
+ * - 430px (iPhone Pro Max / modern smartphones)
+ * - 768px (iPad portrait)
+ * - 1024px (iPad landscape / small laptops)
+ * - 1440px (Desktop)
+ * - 1920px (Ultrawide)
+ */
+
+/* ==========================================================================
+   1. Large Desktop & Ultrawide (1440px - 1920px+)
+   ========================================================================== */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1400px;
+  }
+
+  .hero__container {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+
+  .hero__headline {
+    font-size: 4.6rem;
+  }
+}
+
+/* ==========================================================================
+   2. Medium Desktop & Laptop (max-width: 1200px)
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .footer__grid {
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: 2.5rem;
+  }
+
+  .consultation-wrap {
+    gap: 3rem;
+  }
+
+  .reviews-deck-track {
+    gap: 1rem;
+  }
+}
+
+/* ==========================================================================
+   3. Tablet Landscape & Mobile Navigation Drawer (max-width: 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 70px;
+    --header-height-scrolled: 56px;
+  }
+
+  .header__nav-toggle {
+    display: flex;
+  }
+
+  .header__actions .btn {
+    display: none;
+  }
+
+  /* Off-canvas sidebar firmly attached to the LEFT */
+  .header__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(300px, 80vw);
+    max-width: 85vw;
+    height: 100vh;
+    height: 100dvh;
+    background-color: #FFFFFF;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem 1.5rem;
+    transform: translateX(-100%);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    border-right: 1px solid var(--border-light);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
+    z-index: 1005;
+  }
+
+  .header__nav.is-open {
+    transform: translateX(0);
+  }
+
+  /* Drawer Top Brand Header */
+  .header__drawer-brand {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .header__drawer-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-dark-walnut);
+    text-transform: uppercase;
+  }
+
+  .header__drawer-close {
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--text-muted);
+    padding: 0.25rem;
+    cursor: pointer;
+  }
+
+  .header__drawer-close:hover {
+    color: var(--color-dark-walnut);
+  }
+
+  .header__nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .header__nav-link {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(48, 37, 30, 0.08);
+  }
+
+  .header__mobile-cta {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .header__mobile-cta .btn {
+    width: 100%;
+  }
+
+  .header__nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+
+  .header__nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+
+  .hero {
+    min-height: 75vh;
+  }
+
+  .consultation-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail__specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-detail__narrative {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-detail-section {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .service-detail-section--reversed .service-detail__image-box {
+    order: 1;
+  }
+
+  .service-detail-section--reversed .service-detail__text-box {
+    order: 2;
+  }
+}
+
+/* ==========================================================================
+   4. Tablet Portrait (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .section-header--flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* Horizontal Projects Reel: Bleed edge-to-edge & peek second card's left side by ~10% */
+  .projects-scroll-wrapper {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+  }
+
+  .projects-scroll-rail {
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+    gap: 1rem;
+    scroll-padding-left: 1rem;
+  }
+
+  .projects-scroll-rail .project-card {
+    /* 84vw leaves ~8-12% of the second card visible on the right edge */
+    flex: 0 0 84vw;
+    width: 84vw;
+    max-width: 340px;
+    scroll-snap-align: start;
+  }
+
+  .projects-scroll-rail .project-card__title {
+    font-size: 1.2rem;
+  }
+
+  .projects-scroll-rail .project-card__excerpt {
+    font-size: 0.88rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Section 4: What We Do (2x2 GRID ON MOBILE WIDTH) */
+  .services-grid-2x2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(0.55rem, 2.5vw, 1rem);
+  }
+
+  .service-card-compact {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    grid-template-columns: 1fr;
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .service-card-compact__img-wrap {
+    height: 110px;
+    min-height: 100px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card-compact__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-card-compact__content {
+    padding: clamp(0.65rem, 2vw, 0.9rem);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .service-card-compact__title {
+    font-size: clamp(0.92rem, 2.5vw, 1.05rem);
+    line-height: 1.25;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+  }
+
+  .service-card-compact__desc {
+    font-size: clamp(0.75rem, 1.8vw, 0.82rem);
+    line-height: 1.45;
+    color: var(--text-muted);
+    margin-bottom: 0.65rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .service-card-compact__link {
+    font-size: 0.74rem;
+    font-weight: 700;
+    gap: 0.25rem;
+    margin-top: auto;
+  }
+
+  .reviews-deck-track {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    gap: 1.25rem;
+  }
+
+  .testimonial-card-deck {
+    width: 100%;
+    max-width: 100%;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .testimonial-card-deck.is-side {
+    display: none; /* Only show active card on mobile */
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid .project-card {
+    grid-column: span 1;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer__grid > div:first-child,
+  .footer__grid > div:last-child {
+    grid-column: span 2;
+  }
+
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail__features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5. Compact Mobile Screens (max-width: 430px & 375px)
+   ========================================================================== */
+@media (max-width: 430px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .header__wordmark {
+    font-size: 1.45rem;
+  }
+
+  .hero__headline {
+    font-size: 2.15rem;
+  }
+
+  .hero__desc {
+    font-size: 1rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .project-detail__specs-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1.25rem;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid > div:first-child,
+  .footer__grid > div:last-child {
+    grid-column: span 1;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .consultation-form-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .btn {
+    padding: 0.85rem 1.4rem;
+    font-size: 0.82rem;
+  }
+
+  .portfolio-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .filter-pill {
+    flex-shrink: 0;
+  }
+}
+
+/* ==========================================================================
+   6. Accessibility & Reduced Motion Support
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .btn--primary,
+  .btn--outline,
+  .filter-pill.is-active {
+    forced-color-adjust: none;
+    border: 2px solid ButtonText;
+  }
+}
